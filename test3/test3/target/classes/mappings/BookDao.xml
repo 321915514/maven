@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mvc.dao.BookDao">
+
+    <select id = "findAllbook" resultType = "map">
+        SELECT * FROM book;
+    </select>
+
+    <delete id="b_deleteByID" parameterType="string" >
+        delete from book where b_id = #{b_id};
+    </delete>
+
+    <insert id="insertbook" parameterType="map">
+    insert into book (b_id,b_name,b_author,b_pub)
+    value (#{b_id},#{b_name},#{b_author},#{b_pub});
+</insert>
+
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mvc.dao.FindList">
+    <select id="SqlList" parameterType="map" resultType="map">
+    select * from test where username=#{username} and password=#{password} ;
+    </select>
+    <select id="findall" parameterType="map" resultType="map">
+        select * from test;
+    </select>
+    <insert id="InsertSql" parameterType="map" >
+        insert into test(username,password,sex)  values(#{username},#{password},#{sex});
+    </insert>
+    <update id="update" parameterType="map" >
+        update test set username=#{username},password=#{password},sex=#{sex} where id=#{id};
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from test where id=#{id};
+    </delete>
+    <select id="select" parameterType="map" resultType="map">
+        select * from test where id=#{id};
+    </select>
+    <select id="updateList" parameterType="int" resultType="map">
+        select * from test where id=#{id} ;
+    </select>
+    <insert id="insert" parameterType="Map">
+        insert into  test(username,password,sex) value(#{username},#{password},#{sex});
+
+    </insert>
+
+
+    <select id="login_username" parameterType="Map" resultType="Map">
+        select *  from test where username=#{username};
+
+    </select>
+    <select id="findball" parameterType="map" resultType="map">
+        select * from book;
+    </select>
+    <select id="updatebList" parameterType="String" resultType="map">
+        select * from book where b_id=#{b_id} ;
+    </select>
+    <update id="updateb" parameterType="map" >
+        update book set b_name=#{b_name},b_author=#{b_author},b_pub=#{b_pub},b_record=#{b_record} WHERE b_id =#{b_id};
+    </update>
+
+    <select id="findById"  resultType="Map">
+        select * from book  where b_id=#{b_id};
+    </select>
+    <insert id="insertbook" parameterType="map">
+        insert into book (b_id,b_name,b_author,b_pub,b_record)
+            value(#{b_id},#{b_name},#{b_author},#{b_pub},#{b_record});
+    </insert>
+    <delete id="b_deleteByID" parameterType="string" >
+        delete from book where b_id = #{b_id};
+    </delete>
+
+</mapper>
